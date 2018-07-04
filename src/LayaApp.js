@@ -3,8 +3,12 @@ class LayaApp {
         // 初始化引擎
         const WebGL = laya.webgl.WebGL
         Laya.init(800, 600, WebGL)
-        // 设置stage颜色
-        Laya.stage.scaleMode = Laya.Stage.SCALE_NOSCALE
+        // 设置stage属性
+        // Laya.stage.scaleMode = Laya.Stage.SCALE_NOSCALE
+        // Laya.stage.scaleMode = Laya.Stage.SCALE_FIXED_AUTO
+        // Laya.stage.scaleMode =  Laya.Stage.SCALE_EXACTFIT
+        // Laya.stage.scaleMode =  Laya.Stage.SCALE_NOBORDER
+        Laya.stage.scaleMode =  Laya.Stage.SCALE_SHOWALL
         Laya.stage.alignH = Laya.Stage.ALIGN_CENTER
         Laya.stage.alignW = Laya.Stage.ALIGN_CENTER
         Laya.stage.screenMode = Laya.Stage.SCREEN_NONE

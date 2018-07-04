@@ -9,7 +9,7 @@ class Hammer extends ui.HammerUI {
     // 开始使用
     start() {
         this.visible = true
-        Laya.Mouse.hide()
+        // Laya.Mouse.hide()
         Laya.stage.on(Laya.Event.MOUSE_DOWN, this, this.onMouseDown)
         Laya.stage.on(Laya.Event.MOUSE_MOVE, this, this.onMouseMove)
         this.onMouseMove()
@@ -25,6 +25,6 @@ class Hammer extends ui.HammerUI {
         this.hit.play(0, false)
     }
     onMouseMove() {
-        this.pos(Laya.stage.mouseX - this.width / 2, Laya.stage.mouseY - this.height / 3)
+        this.pos(Laya.stage.mouseX - this.width / 2, Laya.stage.mouseY - this.height / 2)
     }
 }

@@ -13,6 +13,9 @@ class GameView extends ui.GameUI {
     }
     // 初始化
     init() {
+        // 居中显示
+        this.centerX = 0
+        this.centerY = 0
         // 初始化9只地鼠
         this.moles = []
         this.moleNum = 9
@@ -51,8 +54,6 @@ class GameView extends ui.GameUI {
         if (!LayaApp.gameOverView) {
             LayaApp.gameOverView = new GameOverView()
         }
-        LayaApp.gameOverView.centerX = 0
-        LayaApp.gameOverView.centerY = 40
         LayaApp.gameOverView.setScoreUI(this.score)
         Laya.stage.addChild(LayaApp.gameOverView)
     }

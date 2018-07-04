@@ -4,6 +4,10 @@
 class GameOverView extends ui.GameOverUI {
     constructor() {
         super()
+        // 居中显示
+        this.centerX = 0
+        this.centerY = 0
+        // 重启事件
         this.restartBtn.on(Laya.Event.CLICK, this, this.onRestartGame)
     }
     // 重启游戏

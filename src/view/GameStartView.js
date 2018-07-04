@@ -4,6 +4,10 @@
 class GameStartView extends ui.GameStartUI {
     constructor() {
         super()
+        // 居中显示
+        this.centerX = 0
+        this.centerY = 0
+        // 启动事件
         this.startBtn.on(Laya.Event.CLICK, this, this.onStartGame)
     }
     onStartGame() {

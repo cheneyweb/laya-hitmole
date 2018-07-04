@@ -10,6 +10,7 @@ class Mole {
         this.hitCallBackHandler = hitCallBackHandler
         this.upY = this.normalImg.y
         this.scoreY = this.scoreImg.y
+        // 碰撞事件
         this.normalImg.on(Laya.Event.CLICK, this, this.hit)
         this.reset()
     }
