@@ -12,7 +12,7 @@ class LayaApp {
         Laya.stage.alignH = Laya.Stage.ALIGN_CENTER
         Laya.stage.alignW = Laya.Stage.ALIGN_CENTER
         Laya.stage.screenMode = Laya.Stage.SCREEN_NONE
-        Laya.stage.bgColor = "#ffcccc"
+        Laya.stage.bgColor = "#ffffff"
         // 加载资源
         Laya.loader.load("res/atlas/ui.atlas", Laya.Handler.create(this, this.onLoaded), null, Laya.Loader.ATLAS)
     }
