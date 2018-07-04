@@ -2,21 +2,21 @@
  * 地鼠类
  */
 class Mole {
-    constructor(normalState, hitState, downY, hitCallBackHandler, scoreImg) {
-        this.normalState = normalState
-        this.hitState = hitState
-        this.downY = downY
-        this.upY = this.normalState.y
-        this.hitCallBackHandler = hitCallBackHandler
+    constructor(normalImg, hitImg, scoreImg, downY, hitCallBackHandler) {
+        this.normalImg = normalImg
+        this.hitImg = hitImg
         this.scoreImg = scoreImg
+        this.downY = downY
+        this.hitCallBackHandler = hitCallBackHandler
+        this.upY = this.normalImg.y
         this.scoreY = this.scoreImg.y
+        this.normalImg.on(Laya.Event.CLICK, this, this.hit)
         this.reset()
-        this.normalState.on(Laya.Event.CLICK, this, this.hit)
     }
     // 重置
     reset() {
-        this.normalState.visible = false
-        this.hitState.visible = false
+        this.normalImg.visible = false
+        this.hitImg.visible = false
         this.scoreImg.visible = false
         this.isActive = false
         this.isShow = false
@@ -28,12 +28,12 @@ class Mole {
             this.isActive = true
             this.isShow = true
             this.type = Math.random() < 0.3 ? 1 : 2
-            this.normalState.skin = `ui/mouse_normal_${this.type}.png`
-            this.hitState.skin = `ui/mouse_hit_${this.type}.png`
+            this.normalImg.skin = `ui/mouse_normal_${this.type}.png`
+            this.hitImg.skin = `ui/mouse_hit_${this.type}.png`
             this.scoreImg.skin = `ui/score_${this.type}.png`
-            this.normalState.y = this.downY
-            this.normalState.visible = true
-            Laya.Tween.to(this.normalState, { y: this.upY }, 500, Laya.Ease.backInOut, Laya.Handler.create(this, this.showComplete))
+            this.normalImg.y = this.downY
+            this.normalImg.visible = true
+            Laya.Tween.to(this.normalImg, { y: this.upY }, 500, Laya.Ease.backInOut, Laya.Handler.create(this, this.showComplete))
         }
     }
     // 停留
@@ -46,7 +46,7 @@ class Mole {
     hide() {
         if (this.isShow && !this.isHit) {
             this.isShow = false
-            Laya.Tween.to(this.normalState, { y: this.downY }, 300, Laya.backIn, Laya.Handler.create(this, this.reset))
+            Laya.Tween.to(this.normalImg, { y: this.downY }, 300, Laya.backIn, Laya.Handler.create(this, this.reset))
         }
     }
     // 受击
@@ -54,8 +54,8 @@ class Mole {
         if (this.isShow && !this.isHit) {
             this.isShow = false
             this.isHit = true
-            this.normalState.visible = false
-            this.hitState.visible = true
+            this.normalImg.visible = false
+            this.hitImg.visible = true
             this.hitCallBackHandler.runWith(this.type)
             Laya.timer.clear(this, this.hide)
             Laya.timer.once(500, this, this.reset)

@@ -4,9 +4,11 @@
 class Hammer extends ui.HammerUI {
     constructor() {
         super()
+        this.visible = false
     }
     // 开始使用
     start() {
+        this.visible = true
         Laya.Mouse.hide()
         Laya.stage.on(Laya.Event.MOUSE_DOWN, this, this.onMouseDown)
         Laya.stage.on(Laya.Event.MOUSE_MOVE, this, this.onMouseMove)
@@ -14,6 +16,7 @@ class Hammer extends ui.HammerUI {
     }
     // 结束使用
     end() {
+        this.visible = false
         Laya.Mouse.show()
         Laya.stage.off(Laya.Event.MOUSE_DOWN, this, this.onMouseDown)
         Laya.stage.off(Laya.Event.MOUSE_MOVE, this, this.onMouseMove)

@@ -4,10 +4,10 @@
 class GameOverView extends ui.GameOverUI {
     constructor() {
         super()
-        this.restartBtn.on(Laya.Event.CLICK, this, this.onReStartGame)
+        this.restartBtn.on(Laya.Event.CLICK, this, this.onRestartGame)
     }
     // 重启游戏
-    onReStartGame() {
+    onRestartGame() {
         // 移除结束界面
         this.removeSelf()
         // 移除游戏界面
@@ -16,13 +16,12 @@ class GameOverView extends ui.GameOverUI {
         Laya.stage.addChild(LayaApp.gameStartView)
     }
     // 设置分数显示
-    setScoreUI(score){
-        this.data = {}
-        this.temp = score
+    setScoreUI(score) {
+        const data = {}
         for (let i = 9; i >= 0; i--) {
-            this.data[`item${i}`] = { index: Math.floor(this.temp % 10) }
-            this.temp /= 10
+            data[`item${i}`] = { index: Math.floor(score % 10) }
+            score /= 10
         }
-        this.scoreNum.dataSource = this.data
+        this.scoreNum.dataSource = data
     }
 }
