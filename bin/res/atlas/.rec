@@ -1,0 +1,27 @@
+D .
+D ui
+R E0601856 back.png
+P 88BF7C9C btn_restart.png
+P 96015AC9 btn_start.png
+P 60053BEA clip_number.png
+P 7333C265 hammer.png
+R 3F6665F9 help.png
+P 38E89816 mask-01.png
+P FB3FB95F mask-02.png
+P 45A0C325 mask-03.png
+P 2D659416 mask-04.png
+P 860CFDC2 mask-05.png
+P B1FA7224 mask-06.png
+P BF773403 mask-07.png
+P C993B5C8 mask-08.png
+P 2FDB30E2 mask-09.png
+P 0ACF3BA0 mouse_hit_1.png
+P 87E1FD2A mouse_hit_2.png
+P 565A01DA mouse_normal_1.png
+P E10D3C81 mouse_normal_2.png
+P E2F70C18 overBg.png
+P C02DEFDF progress_time$bar.png
+P D8515507 progress_time.png
+P 7B01914E score_1.png
+P 2B3A1D07 score_2.png
+P 202C5525 total Score.png
