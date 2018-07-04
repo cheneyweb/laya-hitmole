@@ -1,15 +1,19 @@
 /**
  * 结束界面类
  */
-class GameOver extends ui.GameOverUI {
+class GameOverView extends ui.GameOverUI {
     constructor() {
         super()
         this.restartBtn.on(Laya.Event.CLICK, this, this.onReStartGame)
     }
+    // 重启游戏
     onReStartGame() {
+        // 移除结束界面
         this.removeSelf()
-        LayaSimple.game.removeSelf()
-        Laya.stage.addChild(LayaSimple.gameStart)
+        // 移除游戏界面
+        LayaApp.gameView.removeSelf()
+        // 加载启动界面
+        Laya.stage.addChild(LayaApp.gameStartView)
     }
     // 设置分数显示
     setScoreUI(score){

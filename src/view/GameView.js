@@ -3,7 +3,7 @@
  * 载入地鼠
  * 执行主循环
  */
-class Game extends ui.GameUI {
+class GameView extends ui.GameUI {
     constructor() {
         super()
         this.hitCallBackHandler = Laya.Handler.create(this, this.setScore, null, false)
@@ -36,13 +36,13 @@ class Game extends ui.GameUI {
         this.hammer.visible = false
         this.hammer.end()
         Laya.timer.clear(this, this.onLoop)
-        if (!LayaSimple.gameOver) {
-            LayaSimple.gameOver = new GameOver()
+        if (!LayaApp.gameOverView) {
+            LayaApp.gameOverView = new GameOverView()
         }
-        LayaSimple.gameOver.centerX = 0
-        LayaSimple.gameOver.centerY = 40
-        LayaSimple.gameOver.setScoreUI(this.score)
-        Laya.stage.addChild(LayaSimple.gameOver)
+        LayaApp.gameOverView.centerX = 0
+        LayaApp.gameOverView.centerY = 40
+        LayaApp.gameOverView.setScoreUI(this.score)
+        Laya.stage.addChild(LayaApp.gameOverView)
     }
     // 游戏启动
     gameStart() {
