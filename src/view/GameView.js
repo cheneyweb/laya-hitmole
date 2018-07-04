@@ -6,6 +6,13 @@
 class GameView extends ui.GameUI {
     constructor() {
         super()
+        // 初始化
+        this.init()
+        // 设置进度条初始值，分数值，击中回调
+        this.gameStart()
+    }
+    // 初始化
+    init() {
         this.hitCallBackHandler = Laya.Handler.create(this, this.setScore, null, false)
         // 初始化9只地鼠
         this.moles = []
@@ -19,8 +26,6 @@ class GameView extends ui.GameUI {
         this.hammer = new Hammer()
         this.addChild(this.hammer)
         this.hammer.visible = false
-        // 设置进度条初始值，分数值，击中回调
-        this.gameStart()
     }
     // 主循环，倒计时，随机显示一只地鼠
     onLoop() {
@@ -30,29 +35,6 @@ class GameView extends ui.GameUI {
         }
         this.index = Math.floor(Math.random() * this.moleNum)
         this.moles[this.index].show()
-    }
-    // 游戏结束
-    gameOver() {
-        this.hammer.visible = false
-        this.hammer.end()
-        Laya.timer.clear(this, this.onLoop)
-        if (!LayaApp.gameOverView) {
-            LayaApp.gameOverView = new GameOverView()
-        }
-        LayaApp.gameOverView.centerX = 0
-        LayaApp.gameOverView.centerY = 40
-        LayaApp.gameOverView.setScoreUI(this.score)
-        Laya.stage.addChild(LayaApp.gameOverView)
-    }
-    // 游戏启动
-    gameStart() {
-        this.timeBar.value = 1
-        this.score = 0
-        this.hammer.visible = true
-        this.updateScoreUI()
-        this.hammer.start()
-        // 执行主循环
-        Laya.timer.loop(1000, this, this.onLoop)
     }
     // 记录分数
     setScore(type) {
@@ -71,5 +53,28 @@ class GameView extends ui.GameUI {
             this.temp /= 10
         }
         this.scoreNum.dataSource = this.data
+    }
+    // 游戏启动
+    gameStart() {
+        this.timeBar.value = 1
+        this.score = 0
+        this.hammer.visible = true
+        this.updateScoreUI()
+        this.hammer.start()
+        // 执行主循环
+        Laya.timer.loop(1000, this, this.onLoop)
+    }
+    // 游戏结束
+    gameOver() {
+        this.hammer.visible = false
+        this.hammer.end()
+        Laya.timer.clear(this, this.onLoop)
+        if (!LayaApp.gameOverView) {
+            LayaApp.gameOverView = new GameOverView()
+        }
+        LayaApp.gameOverView.centerX = 0
+        LayaApp.gameOverView.centerY = 40
+        LayaApp.gameOverView.setScoreUI(this.score)
+        Laya.stage.addChild(LayaApp.gameOverView)
     }
 }
