@@ -2,7 +2,7 @@
 Laya游戏-打地鼠，JS版本实现，ES6编码重构
 
 ## 演示
-![hitmole-demo.gif](https://upload-images.jianshu.io/upload_images/5173617-105fe915a7ca0a28.gif?imageMogr2/auto-orient/strip)
+![hitmole-demo.gif](https://upload-images.jianshu.io/upload_images/5173617-c3d84ed4008a95ea.gif?imageMogr2/auto-orient/strip)
 
 >H5模式演示版本：[https://cheneyweb.github.io/laya-hitmole/dist/index.html](https://cheneyweb.github.io/laya-hitmole/dist/index.html)
 
