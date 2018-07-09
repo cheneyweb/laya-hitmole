@@ -17,6 +17,8 @@ class LayaApp {
         Laya.stage.alignW = Laya.Stage.ALIGN_CENTER
         Laya.stage.screenMode = Laya.Stage.SCREEN_NONE
         Laya.stage.bgColor = "#ffffff"
+        // 播放背景音乐
+        Laya.SoundManager.playMusic("res/sounds/bgm.mp3", 0, null)
     }
     // 加载资源
     beginLoad() {
